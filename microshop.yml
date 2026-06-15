@@ -195,7 +195,7 @@ metadata:
   name: frontend
   namespace: microshop
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: frontend
