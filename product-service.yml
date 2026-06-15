@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  namespace: microshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: hung16/microshop-product-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3002
+          env:
+            - name: PORT
+              value: "3002"
+            - name: MONGO_URI
+              value: "mongodb://mongo:27017/microshop_product"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+  namespace: microshop
+spec:
+  type: ClusterIP
+  selector:
+    app: product-service
+  ports:
+    - port: 3002
+      targetPort: 3002
