@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - microshop.yml
+  - ingress.yml
+
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: microshop
+      app.kubernetes.io/managed-by: argocd
+      environment: lab
+    includeSelectors: false
+    includeTemplates: true
