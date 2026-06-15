@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - namespace.yml
+  - configmap.yml
   - mongo.yml
   - auth-service.yml
   - product-service.yml

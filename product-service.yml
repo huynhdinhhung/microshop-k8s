@@ -21,9 +21,15 @@ spec:
             - containerPort: 3002
           env:
             - name: PORT
-              value: "3002"
+              valueFrom:
+                configMapKeyRef:
+                  name: microshop-config
+                  key: PRODUCT_PORT
             - name: MONGO_URI
-              value: "mongodb://mongo:27017/microshop_product"
+              valueFrom:
+                configMapKeyRef:
+                  name: microshop-config
+                  key: PRODUCT_MONGO_URI
 
 ---
 apiVersion: v1

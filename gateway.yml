@@ -21,11 +21,20 @@ spec:
             - containerPort: 3000
           env:
             - name: PORT
-              value: "3000"
+              valueFrom:
+                configMapKeyRef:
+                  name: microshop-config
+                  key: GATEWAY_PORT
             - name: AUTH_SERVICE_URL
-              value: "http://auth-service:3001"
+              valueFrom:
+                configMapKeyRef:
+                  name: microshop-config
+                  key: AUTH_SERVICE_URL
             - name: PRODUCT_SERVICE_URL
-              value: "http://product-service:3002"
+              valueFrom:
+                configMapKeyRef:
+                  name: microshop-config
+                  key: PRODUCT_SERVICE_URL
 
 ---
 apiVersion: v1
