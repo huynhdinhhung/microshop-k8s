@@ -27,8 +27,8 @@ spec:
                   key: PRODUCT_PORT
             - name: MONGO_URI
               valueFrom:
-                configMapKeyRef:
-                  name: microshop-config
+                secretKeyRef:
+                  name: microshop-secret
                   key: PRODUCT_MONGO_URI
 
 ---

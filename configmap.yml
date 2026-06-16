@@ -5,10 +5,7 @@ metadata:
   namespace: microshop
 data:
   AUTH_PORT: "3001"
-  AUTH_MONGO_URI: "mongodb://mongo:27017/microshop_auth"
-
   PRODUCT_PORT: "3002"
-  PRODUCT_MONGO_URI: "mongodb://mongo:27017/microshop_product"
 
   GATEWAY_PORT: "3000"
   AUTH_SERVICE_URL: "http://auth-service:3001"
